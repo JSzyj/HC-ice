@@ -39,6 +39,14 @@ module.exports = {
                 ]
             },
             {
+                test: /\.s[ac]ss$/i,
+                use: [
+                  'style-loader',
+                  'css-loader',
+                  'sass-loader',
+                ],
+              },
+            {
                 test: /\.(js|jsx)$/,
                 exclude: /(node_modules|bower_components)/,
                 use: {

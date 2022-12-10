@@ -3,5 +3,12 @@
         // "es2015",
         // "@babel/preset-env",
         // "@babel/preset-react"
-    ]
+    ],
+    
+    "plugins": [
+        ["babel-plugin-import", {
+          "libraryName": "@alifd/next",
+          "style": true
+        }]
+      ]
 }
