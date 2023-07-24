@@ -2,6 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
+const LodashWebpackPlugin = require("lodash-webpack-plugin");
+
 module.exports = {
     entry: './src/index.jsx',
     output: {
@@ -10,7 +12,8 @@ module.exports = {
     },
 
     devServer: {
-        static: './dist'
+        static: './dist',
+        // port: 3000,
     },
     devtool: 'inline-source-map',
     plugins: [
@@ -18,7 +21,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'HC-ice',
             template: './index.html'
-        })
+        }),
+        new LodashWebpackPlugin()
     ],
     mode: 'development',
     module: {
@@ -52,6 +56,7 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
+                        plugins: ["lodash"],
                         presets: ['@babel/preset-env', '@babel/preset-react']
                     }
                 }
