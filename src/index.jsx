@@ -5,19 +5,31 @@ import Home from "./page/home/index.jsx";
 import'./index.less'
 
 const App = () => {
+     var arr1 =  ['212100000000', '212102000000', '211500000000'] 
+     var arr2 =   ['辽宁分公司', '大连分公司', '内蒙古分公司']
+  
+   const arr3 =   arr1.map((item,index) => {
+        return {
+            code:item,
+            name:arr2[index]
+            
+        }
+    })
 
-    const a = "[{\"downloadUrl\":\"/ossFileHandle?appType=APP_X66J3HR5W8PGMOQ5S6N0&fileName=APP_X66J3HR5W8PGMOQ5S6N0_MTY1NTQ5MTgwNzk5MzMwNl9TVDg2NldCMVlBUTVXUVQ0OFFSWEU4SklYU0RXM0EwTko5V0FMVjc$.pdf&instId=&type=download\",\"name\":\"易快报续费报价（镁信2022-11-25）(1).xlsx.pdf\",\"previewUrl\":\"/inst/preview?appType=APP_X66J3HR5W8PGMOQ5S6N0&fileName=APP_X66J3HR5W8PGMOQ5S6N0_MTY1NTQ5MTgwNzk5MzMwNl9TVDg2NldCMVlBUTVXUVQ0OFFSWEU4SklYU0RXM0EwTko5V0FMVjc%24.pdf&fileSize=231595&downloadUrl=APP_X66J3HR5W8PGMOQ5S6N0_MTY1NTQ5MTgwNzk5MzMwNl9TVDg2NldCMVlBUTVXUVQ0OFFSWEU4SklYU0RXM0EwTko5V0FMVjc$.pdf\",\"size\":231595,\"url\":\"/ossFileHandle?appType=APP_X66J3HR5W8PGMOQ5S6N0&fileName=APP_X66J3HR5W8PGMOQ5S6N0_MTY1NTQ5MTgwNzk5MzMwNl9TVDg2NldCMVlBUTVXUVQ0OFFSWEU4SklYU0RXM0EwTko5V0FMVjc$.pdf&instId=&type=download\"}]"
-    
-    const  b= JSON.parse(a)
-    console.log(b[0])
-
+    const mergeArr = (arr1,arr2) => {
+        const newArr =   arr1.map((item,index) => {
+            return {
+                code:item,
+                name:arr2[index]
+                
+            }
+        })
+        return newArr
+    }
+    console.log(arr3)
 
     useEffect(() => {
-        fetch('http://localhost:3000/users/users').then((res) => {
-           res.json().then((req) => {
-              console.log(JSON.parse(req))
-           })
-        })
+        mergeArr(arr1,arr2)
     },[])
 
 
